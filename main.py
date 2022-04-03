@@ -1,14 +1,18 @@
 import pygame
 import os
 from automaton import Automaton
+from constants import size
+from images import Images
 
-size = width, height = 1250, 650
-# x = 1300
-# y = 200
-# os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x, y)
+
+x = 1400
+y = 200
+os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x, y)
 
 screen = pygame.display.set_mode(size)
 pygame.init()
+
+imgs = Images()
 
 mainLoop = True
 paused = False
@@ -21,6 +25,7 @@ while mainLoop:
       if event.type == pygame.MOUSEBUTTONUP:
         automaton.loop()
   screen.fill((0, 0, 0))
+  screen.blit(imgs.background, [0,0])
   pygame.display.update()
 
 pygame.quit()
