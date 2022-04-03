@@ -1,6 +1,6 @@
 import pygame
 import os
-from automato import Automato
+from automaton import Automaton
 
 size = width, height = 1250, 650
 # x = 1300
@@ -12,14 +12,14 @@ pygame.init()
 
 mainLoop = True
 paused = False
-automato = Automato()
+automaton = Automaton()
 
 while mainLoop:
   for event in pygame.event.get():
       if event.type == pygame.QUIT:
         mainLoop = False
       if event.type == pygame.MOUSEBUTTONUP:
-        automato.loop()
+        automaton.loop()
   screen.fill((0, 0, 0))
   pygame.display.update()
 
