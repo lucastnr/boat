@@ -2,10 +2,10 @@ import pygame
 import os
 from automato import Automato
 
-size = width, height = 1280, 1060
-x = 1280 # - 960
-y = 0
-os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x, y)
+size = width, height = 1250, 650
+# x = 1300
+# y = 200
+# os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x, y)
 
 screen = pygame.display.set_mode(size)
 pygame.init()
