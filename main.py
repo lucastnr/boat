@@ -1,31 +1,40 @@
 import pygame
-import os
 from automaton import Automaton
-from constants import size
+from constants import size, positions
 from images import Images
-
+from fonts.fonts import opensans
 
 x = 1400
 y = 200
-os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x, y)
 
 screen = pygame.display.set_mode(size)
 pygame.init()
-
 imgs = Images()
 
 mainLoop = True
-paused = False
 automaton = Automaton()
+
+button = pygame.Rect(500, 600, 250, 65)
+buttonText = opensans.render("Próximo", True, (255, 255, 255))
 
 while mainLoop:
   for event in pygame.event.get():
       if event.type == pygame.QUIT:
         mainLoop = False
       if event.type == pygame.MOUSEBUTTONUP:
-        automaton.loop()
-  screen.fill((0, 0, 0))
+        if button.collidepoint(pygame.mouse.get_pos()):
+          automaton.loop()
   screen.blit(imgs.background, [0,0])
+  # Desenha botão
+  pygame.draw.rect(screen, (200,0,0), button)
+  screen.blit(buttonText, (545, 598))
+  # Desenha personagens
+  characters = [imgs.goat, imgs.wolf, imgs.farmer, imgs.cabbage]
+  states = automaton.getStates()
+  for i in range(4):
+    pos = positions[i][states[i]]
+    screen.blit(characters[i], pos)
+
   pygame.display.update()
 
 pygame.quit()

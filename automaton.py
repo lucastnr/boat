@@ -20,7 +20,7 @@ class Automaton():
 
     print(self.state)
 
-    # Todos na esqueda
+    # Todos na esquerda
     if farmer == 0 and cabbage == 0 and goat == 0 and wolf == 0:
       self.travessia({ 
       "farmer": 1,
@@ -79,3 +79,7 @@ class Automaton():
     self.state["cabbage"] = state["cabbage"]
     self.state["goat"] = state["goat"]
     self.state["wolf"] = state["wolf"]
+  
+  def getStates(self):
+    stateList = [self.state["goat"], self.state["wolf"], self.state["farmer"], self.state["cabbage"]]
+    return stateList
