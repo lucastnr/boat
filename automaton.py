@@ -8,10 +8,6 @@ class Automaton():
     "wolf": 0
   }
 
-
-  def __init__(self):
-   self.loop()
-
   def loop(self):
     farmer = self.state["farmer"]
     cabbage = self.state["cabbage"]
@@ -82,4 +78,5 @@ class Automaton():
   
   def getStates(self):
     stateList = [self.state["goat"], self.state["wolf"], self.state["farmer"], self.state["cabbage"]]
+    #print(f"LISTA: {stateList}")
     return stateList
