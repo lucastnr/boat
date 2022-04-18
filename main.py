@@ -16,6 +16,7 @@ automaton = Automaton()
 
 button = pygame.Rect(500, 600, 250, 65)
 buttonText = opensans.render("Próximo", True, (255, 255, 255))
+state = 0
 
 while mainLoop:
   for event in pygame.event.get():
@@ -24,7 +25,10 @@ while mainLoop:
       if event.type == pygame.MOUSEBUTTONUP:
         if button.collidepoint(pygame.mouse.get_pos()):
           automaton.loop()
+          state += 1
   screen.blit(imgs.background, [0,0])
+  if state <= 7:
+    screen.blit(imgs.states[state], [0,720])
   # Desenha botão
   pygame.draw.rect(screen, (200,0,0), button)
   screen.blit(buttonText, (545, 598))

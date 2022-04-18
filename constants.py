@@ -1,4 +1,4 @@
-size = width, height = 1280, 720
+size = width, height = 1280, 1000
 
 goatLeft = [200, 300]
 goatRight = [1160,450]
